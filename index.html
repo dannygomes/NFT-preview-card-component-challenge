@@ -14,9 +14,6 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    html {
-      font-size: 14px;
-    }
     body {
       min-height: 100vh;
       font-family: 'Outfit', sans-serif;
@@ -40,14 +37,16 @@
     }
 
     img {
+      display: block;
       max-width: 100%;
       max-height: 100%;
       border-radius: 3%;
     }
 
-    #price-time {
+    .center {
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
 
     p{
@@ -58,6 +57,18 @@
       height: 1px;
       border: none;
       background-color: hsl(215, 51%, 70%);
+    }
+
+    .icon {
+      padding-right: .5rem;
+    }
+
+    .white {
+      color: hsl(0, 0%, 100%);
+    }
+
+    .cyan {
+      color: hsl(178, 100%, 50%);
     }
 
     #author {
@@ -73,32 +84,61 @@
       margin-right: 1rem;
     }
 
+    /*Hover states*/
+    .img-hover::after {
+      content: '';
+      display: block;
+      background-color: hsl(215, 51%, 70%);
+      background-image: url(./images/icon-view.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 3%;
+    }
+
+    .cyan-hover:hover {
+      color: hsl(178, 100%, 50%);
+    }
+
+    /*Media*/
+    @media (max-width: 576px) {
+      html {
+        font-size: 12px;
+      }
+    }
     /*******/
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
 <body>
-  <div id="outer-box">
-    <div id="content">
-      <img src="./images/image-equilibrium.jpg" alt="Image of NFT">
-      <h2>Equilibrium #3429</h1>
-      <p>Our Equilibrium collection promotes balance and calm.</p>
-      <div id="price-time">
-        <p><img src="./images/icon-ethereum.svg" alt="Ethereum logo"> 0.041 ETH</p>
-        <p><img src="./images/icon-clock.svg" alt="Clock icon"> 3 days left</p>
-      </div>
-      <hr>
-      <div id="author">
-        <img id="avatar" src="./images/image-avatar.png" alt="Photo of creator">
-        <p>Creation of Jules Wyvern</p>
+
+  <main>
+    <div id="outer-box">
+      <div id="content">
+        <div id="image-container" class="img-hover">
+          <img src="./images/image-equilibrium.jpg" alt="NFT">
+        </div>
+        <h2 class="cyan-hover">Equilibrium #3429</h2>
+        <p>Our Equilibrium collection promotes balance and calm.</p>
+        <div id="price-time" class="center">
+          <p class="cyan center"><img class="icon" src="./images/icon-ethereum.svg"> 0.041 ETH</p>
+          <p class="center"><img class="icon" src="./images/icon-clock.svg"> 3 days left</p>
+        </div>
+        <hr>
+        <div id="author">
+          <img id="avatar" src="./images/image-avatar.png" alt="Creator">
+          <p>Creation of <a class="cyan-hover white">Jules Wyvern</a></p>
+        </div>
       </div>
     </div>
-  </div>
+  </main>
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Danny Gomes</a>.
+    </div>
+  </footer>
+  
 </body>
 </html>
